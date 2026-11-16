@@ -1,0 +1,18 @@
+# Local environments and secrets
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.DS_Store
+# Original dataset must be acquired from its publisher
+data/
+# Reproducible/generated outputs
+results/
+figures/
+# Temporary artifacts
+*.log
+*.tmp
