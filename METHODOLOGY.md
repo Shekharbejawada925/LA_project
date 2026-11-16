@@ -28,8 +28,8 @@ Place these in the local ignored `data/` directory. No private learner records s
 
 ```text
 data/                              # downloaded separately
-code/analysis.py                   # originally submitted analysis script
-code/build_report.py               # original report builder
+code/analysis.py                   # analysis script
+code/build_report.py               # report builder
 results/                            # generated CSV/JSON
 figures/                            # original generated figures
 report/final_report.pdf             # generated academic report
@@ -45,7 +45,7 @@ python -I code/analysis.py data .
 python -I code/build_report.py .
 ```
 
-The original scripts are preserved in the complete portfolio ZIP supplied with the project. Until the scripts are uploaded to this GitHub repository, the commands above will not run from a fresh GitHub clone.
+Both Python scripts are tracked under `code/` in this repository. Running the analysis requires acquiring all five CSVs from the dataset publisher. The commands have not been end-to-end validated here because those dataset files are not present.
 
 ## Reproducibility caveats
 
