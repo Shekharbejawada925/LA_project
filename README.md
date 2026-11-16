@@ -48,6 +48,10 @@ Results reported in the submitted final report (88 experiments):
 
 **Stack:** Python, pandas, NumPy, SciPy, scikit-learn, statsmodels, NetworkX, Matplotlib, ReportLab, PyMuPDF and Pillow.
 
+## Revised sole-author report
+
+**Author:** Bejawada Shekhar (26m1032). Read the [full GitHub-readable research report](report/FINAL_REPORT.md), including H1–H3, numerical findings, visualizations, interpretation and author contribution statement. The updated PDF and Python report generator are included in the separate downloadable project archive; they have not yet been uploaded as binary files to this repository.
+
 ## Research documentation and visualizations
 
 The research questions, each hypothesis, the evidence and conclusions are detailed in [HYPOTHESES.md](HYPOTHESES.md). The [methodology and reproduction guide](METHODOLOGY.md) describes inputs, analysis stages, limitations and execution steps.
