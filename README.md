@@ -1,115 +1,96 @@
-# CausalEdu | Learning Analytics & Causal Inference
+# CausalEdu — Learning Analytics & Causal Inference
 
-**Naive Pre/Post Lesson Estimates Overstate Learning Gains: Evidence from the CausalEdu A/B Tests**
+### Why naive pre/post lesson gains can disagree with randomized treatment effects
 
-An empirical learning analytics research project comparing observational check-in/check-out improvement statistics with randomized average treatment effects (ATEs) in mathematics education.
+**Bejawada Shekhar** · **26m1032** · M.Tech Educational Technology · IIT Bombay
 
-[![Python](https://img.shields.io/badge/Python-3.11-blue)](https://www.python.org/)
-[![Research](https://img.shields.io/badge/Research-Learning%20Analytics-6f42c1)](#research-overview)
-[![Methods](https://img.shields.io/badge/Methods-Causal%20Inference-0969da)](#methodology)
-[![Status](https://img.shields.io/badge/Status-Academic%20Project-brightgreen)](#project-status)
+[![Python](https://img.shields.io/badge/Python-3.11-blue)](https://www.python.org/) ![Research](https://img.shields.io/badge/Research-Causal%20Inference-6547ac) ![Project](https://img.shields.io/badge/Type-Research%20Portfolio-178565)
 
-> **ET601 Final Project · Indian Institute of Technology Bombay · October 2026**
+> **Research question:** How do observational measures of lesson improvement compare with A/B-test average treatment effects (ATEs), and can learning-history features explain or predict their differences?
 
-## Research overview
+## Overview
 
-Educational platforms often measure lesson effectiveness by comparing a student's answers before and after an instructional intervention. However, pre/post differences do not necessarily identify *causal* learning effects. This project evaluates how observational lesson-improvement measures differ from randomized treatment effects using the public [CausalEdu dataset](https://github.com/Eedi/CausalEdu).
+A student's check-out answer may be more accurate than their earlier check-in answer, but that improvement **does not establish** how much the lesson itself caused. Using [Eedi's CausalEdu dataset](https://github.com/Eedi/CausalEdu), this project compares naive observational estimates against randomized experimental results from **88 experiments**, evaluates alternative ATE predictors and analyzes subgroup patterns. **It does not estimate individual treatment effects** from learner-level randomized assignments.
 
-### Research questions and hypotheses
-
-- **H1 — Overestimation:** Do naive check-in/check-out estimates systematically exceed experimental ATEs?
-- **H2 — Correcting estimates:** Can guessing correction and covariate-based models predict ATEs more accurately than naive estimates?
-- **H3 — Heterogeneity:** Does the observational-to-experimental gap depend on student year group and lesson/question prerequisite distance?
-
-## Key findings
-
-Results reported in the submitted final report (88 experiments):
+## Findings at a glance
 
 | Measure | p-version | k-version |
-|---|---:|---:|
-| Mean naive estimate | 0.34 | 0.26 |
+|:--|--:|--:|
+| Mean naive observational estimate | 0.340 | 0.260 |
 | Mean randomized ATE | 0.057 | 0.056 |
-| Mean gap (naive − ATE) | 0.283 | 0.203 |
-| Experiments with positive gap | 92% | 90% |
-| Naive estimator RMSE | 0.375 | 0.275 |
+| Mean naive minus ATE gap | **0.283** | **0.203** |
+| Experiments with a positive gap | 92% | 90% |
+| Naive estimate RMSE | 0.375 | 0.275 |
 | Gradient boosting RMSE | 0.198 | 0.175 |
 
-**Interpretation.** H1 is supported: naive pre/post improvement is markedly higher than randomized ATEs. For H2, adjusted models improve error compared with naive and guessing-corrected estimates, but do **not** demonstrate statistically clear improvement over the constant mean-ATE benchmark. For H3, year group is associated with the gap, while prerequisite distance shows no clear association.
+> **Interpretation:** Naive metrics are much higher than randomized ATEs, but these are *different estimands*, so the entire gap cannot be labeled causal bias. Even the best predictive model did not demonstrate a statistically clear improvement over a constant mean-ATE benchmark.
 
-**Important qualification:** Naive conditional success rates and randomized ATEs are different estimands. Therefore, the numerical gap should not be interpreted as solely causal bias.
+## Research hypotheses
 
-## Methodology
+| Hypothesis | Question | Conclusion |
+|:--|:--|:--|
+| **H1** | Do naive pre/post estimates exceed randomized ATEs? | **Supported** as a systematic descriptive gap |
+| **H2** | Do guessing correction and covariate-based predictors improve ATE prediction? | **Partially supported**; improvements over naive estimates, not clear over a constant-ATE baseline |
+| **H3** | Are gaps associated with learner year groups and prerequisite distance? | **Partially supported**; year-group differences, no clear distance association |
 
-1. Build learner-history, construct-difficulty, and lesson-related features from event logs.
-2. Link observational lesson/question pairs to 88 randomized experiments.
-3. Evaluate H1 using paired differences, confidence intervals, and hypothesis tests.
-4. Compare raw estimates, analytical guessing correction, mean-ATE baseline, ridge regression, and gradient boosting with grouped cross-validation.
-5. Analyze year-group and prerequisite-graph variation; examine prior-mastery profiles.
+[Detailed hypotheses, evidence and statistical interpretation](HYPOTHESES.md) · [Final research report (PDF)](report/final_report.pdf) · [GitHub-readable research report](report/FINAL_REPORT.md)
 
-**Stack:** Python, pandas, NumPy, SciPy, scikit-learn, statsmodels, NetworkX, Matplotlib, ReportLab, PyMuPDF and Pillow.
+## Visual evidence
 
-## Revised sole-author report
+### H2: Prediction errors by estimator
 
-**Author:** Bejawada Shekhar (26m1032). Read the [full GitHub-readable research report](report/FINAL_REPORT.md), including H1–H3, numerical findings, visualizations, interpretation and author contribution statement. The updated PDF and Python report generator are included in the separate downloadable project archive; they have not yet been uploaded as binary files to this repository.
+The following two figures show root mean squared error (RMSE) of different estimators; **lower is better**.
 
-## Research documentation and visualizations
+![H2, p-version cross-validated RMSE](visualizations/h2_rmse_p.svg)
 
-The research questions, each hypothesis, the evidence and conclusions are detailed in [HYPOTHESES.md](HYPOTHESES.md). The [methodology and reproduction guide](METHODOLOGY.md) describes inputs, analysis stages, limitations and execution steps.
+![H2, k-version cross-validated RMSE](visualizations/h2_rmse_k.svg)
 
-### Visual results
+### H3: Subgroup patterns
 
-**H2 — Prediction RMSE, p-version**
+![H3, p-version observational minus randomized effect gap](visualizations/h3_year_gaps.svg)
 
-![Cross-validated RMSE for p-version](visualizations/h2_rmse_p.svg)
+The analysis script can also generate four research figures including the H1 observational-versus-randomized scatterplots, H3 grouped comparisons, H2 cross-validation summary and learner-history plots. See the reproduction instructions below.
 
-**H2 — Prediction RMSE, k-version**
-
-![Cross-validated RMSE for k-version](visualizations/h2_rmse_k.svg)
-
-**H3 — Year-group differences**
-
-![Naive minus experimental ATE by year group](visualizations/h3_year_gaps.svg)
-
-These three diagrams are faithful visual summaries of the numerical tables in the original project report. The report itself contains four original analysis figures.
-
-****Revised academic report and source code:** A complete archive with sole-author PDFs, updated source code and the four original figures is available separately. The binary report and scripts have not yet been transferred to this GitHub repository.ntains the original report PDF, the submitted Python scripts and all four extracted report figures. The files are **not yet present in this GitHub repository**; they must be uploaded before the repository can reproduce the analysis from a fresh clone.
-
-## Project files
+## Repository structure
 
 ```text
 LA_project/
-├── README.md                  # Project description and reproduction guide
-├── requirements.txt           # Python dependencies
-├── .gitignore                 # Excludes large/raw/generated data
+├── README.md                         # Start here
+├── HYPOTHESES.md                     # H1-H3: evidence and conclusions
+├── METHODOLOGY.md                    # Research pipeline and dataset instructions
+├── CONTRIBUTING.md
+├── requirements.txt
+├── .gitignore
 ├── code/
-│   ├── analysis.py            # H1–H3 experiments, evaluation, plots
-│   └── build_report.py        # Generate the PDF from analysis outputs
-├── final_report.pdf           # Academic research report
-├── data/                      # Download separately; not tracked
-├── results/                   # Generated tables, CSV, JSON
-└── figures/                   # Generated figures
+│   ├── analysis.py                   # Analysis and figure generation
+│   └── build_report.py               # PDF report generation from outputs
+├── report/
+│   ├── final_report.pdf              # Submitted report PDF
+│   └── FINAL_REPORT.md               # Research report readable on GitHub
+├── visualizations/                   # Three lightweight SVG evidence charts
+└── CausalEdu_Shekhar_Final_GitHub.zip # Full project archive
 ```
 
-****Publication note:** The sole-author revised PDF and Python scripts are available in the separately prepared project archive; binary files are not yet present in this GitHub repository.nd report are part of the submission archive. Their presence in the repository should be verified before treating this clone as a complete runnable release.
+The original dataset, `results/`, and generated `figures/` are not committed in the current checkout. The ZIP is an archival convenience; the independently accessible source files are the primary project interface.
 
 ## Reproduce the analysis
 
-**Requirements:** Python 3.11 and the public CausalEdu data files.
+**Python:** 3.11 recommended. The research dataset must be obtained from the original publisher; it is not included in this repository.
 
 ```bash
 git clone https://github.com/Shekharbejawada925/LA_project.git
 cd LA_project
 
 python -m venv .venv
-# macOS/Linux
+# macOS / Linux:
 source .venv/bin/activate
-# Windows PowerShell
+# Windows PowerShell:
 # .venv\Scripts\Activate.ps1
 
 pip install -r requirements.txt
 ```
 
-Download the original data from [Eedi/CausalEdu](https://github.com/Eedi/CausalEdu), and place the required CSV files under `data/`:
+Download the data from [Eedi/CausalEdu](https://github.com/Eedi/CausalEdu) and place these five source CSVs in a local folder named `data/`:
 
 ```text
 data/
@@ -120,33 +101,25 @@ data/
 └── construct_prerequisites_test.csv
 ```
 
-Then, once the project source scripts are in place, run from the repository root:
+Run the following commands from the repository root:
 
 ```bash
 python -I code/analysis.py data .
 python -I code/build_report.py .
 ```
 
-The analysis produces `results/` CSV/JSON outputs and `figures/` PNG visualizations; the report builder produces `final_report.pdf`. The analysis fixes its random seed for repeatable experiments. Exact results may still vary with dependency versions.
+**Outputs:** CSV/JSON tables under `results/`, original research PNGs under `figures/`, and a regenerated PDF at `report/final_report.pdf`. The committed report is preserved until you deliberately rerun the generator. The script fixes a random seed but exact reproduction still depends on the dataset release and package versions.
 
-## Limitations
+## Methods and limitations
 
-- Only 88 experiments; many are linked through shared constructs or lesson/question pairs.
-- The randomized treatment effects have sampling uncertainty.
-- Observational pre/post measures are not the same estimand as randomized treatment effects.
-- The experimental file does not provide learner-level treatment records for estimating individual treatment effects.
-- Year-group differences should be interpreted cautiously because lesson coverage varies between groups.
+The pipeline reconstructs prior learner history using time-ordered event logs, builds construct and lesson-level predictors, compares observational summary statistics with randomized experiments, assesses models through grouped cross-validation, and analyzes heterogeneity by year and prerequisite graph distance.
 
-## Author and project maintainer
+Key limitations include only 88 experiments, noise in experimental ATEs, repeated related lesson/question pairs, different observational and experimental estimands, and non-random lesson coverage by year group. See [METHODOLOGY.md](METHODOLOGY.md) for more detail.
 
-**Bejawada Shekhar (26m1032)** · [@Shekharbejawada925](https://github.com/Shekharbejawada925)
+## Author
 
-Project design, research questions, data processing, H1–H3 analysis, models, visualizations and report preparation (sole-author revision confirmed by the author).
+**Bejawada Shekhar (26m1032)** — research design, feature engineering, statistical analysis, model comparisons, visualizations and report preparation, as confirmed for the revised portfolio version.
 
-## Data attribution
+## Credits and usage
 
-Dataset and associated research: [Eedi / CausalEdu](https://github.com/Eedi/CausalEdu). Please consult the original dataset repository for usage conditions, data documentation, and scholarly citation guidance.
-
-## Project status
-
-Academic research submission (October 2026). This repository is intended to preserve the report, reproducible analysis code and methodological documentation. It is not a production system. No license is granted by default; original dataset rights remain with their owners.
+Dataset: [Eedi / CausalEdu](https://github.com/Eedi/CausalEdu). Original data rights and citation requirements are governed by the publisher. This is an academic research portfolio, **not** a production lesson-effect prediction service. No software license is granted by default.
