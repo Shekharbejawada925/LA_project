@@ -68,7 +68,7 @@ The research questions, each hypothesis, the evidence and conclusions are detail
 
 These three diagrams are faithful visual summaries of the numerical tables in the original project report. The report itself contains four original analysis figures.
 
-**Original academic report and source code:** The complete portfolio archive prepared for upload contains the original report PDF, the submitted Python scripts and all four extracted report figures. The files are **not yet present in this GitHub repository**; they must be uploaded before the repository can reproduce the analysis from a fresh clone.
+****Revised academic report and source code:** A complete archive with sole-author PDFs, updated source code and the four original figures is available separately. The binary report and scripts have not yet been transferred to this GitHub repository.ntains the original report PDF, the submitted Python scripts and all four extracted report figures. The files are **not yet present in this GitHub repository**; they must be uploaded before the repository can reproduce the analysis from a fresh clone.
 
 ## Project files
 
@@ -86,7 +86,7 @@ LA_project/
 └── figures/                   # Generated figures
 ```
 
-**Publication note:** The source scripts and report are part of the submission archive. Their presence in the repository should be verified before treating this clone as a complete runnable release.
+****Publication note:** The sole-author revised PDF and Python scripts are available in the separately prepared project archive; binary files are not yet present in this GitHub repository.nd report are part of the submission archive. Their presence in the repository should be verified before treating this clone as a complete runnable release.
 
 ## Reproduce the analysis
 
@@ -133,11 +133,11 @@ The analysis produces `results/` CSV/JSON outputs and `figures/` PNG visualizati
 - The experimental file does not provide learner-level treatment records for estimating individual treatment effects.
 - Year-group differences should be interpreted cautiously because lesson coverage varies between groups.
 
-## Repository maintainer
+## Author and project maintainer
 
-**Bejawada Shekhar** · [@Shekharbejawada925](https://github.com/Shekharbejawada925)
+**Bejawada Shekhar (26m1032)** · [@Shekharbejawada925](https://github.com/Shekharbejawada925)
 
-This repository is maintained and presented by Bejawada Shekhar. The original academic report retains its own authorship and contribution credits.
+Project design, research questions, data processing, H1–H3 analysis, models, visualizations and report preparation (sole-author revision confirmed by the author).
 
 ## Data attribution
 
