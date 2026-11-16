@@ -48,6 +48,28 @@ Results reported in the submitted final report (88 experiments):
 
 **Stack:** Python, pandas, NumPy, SciPy, scikit-learn, statsmodels, NetworkX, Matplotlib, ReportLab, PyMuPDF and Pillow.
 
+## Research documentation and visualizations
+
+The research questions, each hypothesis, the evidence and conclusions are detailed in [HYPOTHESES.md](HYPOTHESES.md). The [methodology and reproduction guide](METHODOLOGY.md) describes inputs, analysis stages, limitations and execution steps.
+
+### Visual results
+
+**H2 — Prediction RMSE, p-version**
+
+![Cross-validated RMSE for p-version](visualizations/h2_rmse_p.svg)
+
+**H2 — Prediction RMSE, k-version**
+
+![Cross-validated RMSE for k-version](visualizations/h2_rmse_k.svg)
+
+**H3 — Year-group differences**
+
+![Naive minus experimental ATE by year group](visualizations/h3_year_gaps.svg)
+
+These three diagrams are faithful visual summaries of the numerical tables in the original project report. The report itself contains four original analysis figures.
+
+**Original academic report and source code:** The complete portfolio archive prepared for upload contains the original report PDF, the submitted Python scripts and all four extracted report figures. The files are **not yet present in this GitHub repository**; they must be uploaded before the repository can reproduce the analysis from a fresh clone.
+
 ## Project files
 
 ```text
