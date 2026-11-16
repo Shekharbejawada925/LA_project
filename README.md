@@ -49,7 +49,26 @@ The following two figures show root mean squared error (RMSE) of different estim
 
 ![H3, p-version observational minus randomized effect gap](visualizations/h3_year_gaps.svg)
 
-The analysis script can also generate four research figures including the H1 observational-versus-randomized scatterplots, H3 grouped comparisons, H2 cross-validation summary and learner-history plots. See the reproduction instructions below.
+### Four original research figures
+
+These are the original figures extracted from the submitted research report (rather than charts recreated from summary tables).
+
+| Figure | Research focus |
+|:--|:--|
+| [Figure 1](figures/original_figure_1.png) | Naive observational estimates versus randomized ATEs (H1) |
+| [Figure 2](figures/original_figure_2.png) | Differences by year group and prerequisite distance (H3) |
+| [Figure 3](figures/original_figure_3.png) | Cross-validated estimator performance (H2) |
+| [Figure 4](figures/original_figure_4.png) | Prior mastery, no-lesson retry and check-out patterns |
+
+![H1: Naive vs randomized experimental estimates](figures/original_figure_1.png)
+
+![H3: Year-group and prerequisite effects](figures/original_figure_2.png)
+
+![H2: Model performance](figures/original_figure_3.png)
+
+![Supporting learner-history findings](figures/original_figure_4.png)
+
+[Download the final academic report](report/final_report.pdf) · [Download the illustrated portfolio report](report/portfolio_report.pdf).
 
 ## Repository structure
 
@@ -66,12 +85,17 @@ LA_project/
 │   └── build_report.py               # PDF report generation from outputs
 ├── report/
 │   ├── final_report.pdf              # Submitted report PDF
+│   ├── portfolio_report.pdf          # Illustrated portfolio edition
 │   └── FINAL_REPORT.md               # Research report readable on GitHub
-├── visualizations/                   # Three lightweight SVG evidence charts
-└── CausalEdu_Shekhar_Final_GitHub.zip # Full project archive
+├── figures/                          # Four original published analysis figures
+│   ├── original_figure_1.png
+│   ├── original_figure_2.png
+│   ├── original_figure_3.png
+│   └── original_figure_4.png
+└── visualizations/                   # Three lightweight SVG evidence charts
 ```
 
-The original dataset, `results/`, and generated `figures/` are not committed in the current checkout. The ZIP is an archival convenience; the independently accessible source files are the primary project interface.
+The original dataset and generated `results/` are not committed. The four original report figures are available in `figures/`. When rerunning the analysis, the script also generates its own figure files in that folder.
 
 ## Reproduce the analysis
 
@@ -108,7 +132,7 @@ python -I code/analysis.py data .
 python -I code/build_report.py .
 ```
 
-**Outputs:** CSV/JSON tables under `results/`, original research PNGs under `figures/`, and a regenerated PDF at `report/final_report.pdf`. The committed report is preserved until you deliberately rerun the generator. The script fixes a random seed but exact reproduction still depends on the dataset release and package versions.
+**Outputs:** CSV/JSON tables under `results/`, original research PNGs under `figures/`, and a regenerated PDF at `report/final_report.pdf`. The committed reports remain unchanged unless you deliberately run the report generator and commit its output. The script fixes a random seed but exact reproduction still depends on the dataset release and package versions.
 
 ## Methods and limitations
 
