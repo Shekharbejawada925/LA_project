@@ -6,7 +6,7 @@
 **Research period:** October 2026  
 **Project:** Naive Pre/Post Lesson Estimates Overstate Learning Gains: Evidence from the CausalEdu A/B Tests
 
-> This Markdown edition gives a GitHub-readable account of the revised sole-author report. The complete illustrated 8-page PDF and 10-page portfolio PDF were prepared separately and are not yet stored in this repository.
+> This GitHub-readable edition accompanies the [8-page final academic report](final_report.pdf) and [10-page illustrated portfolio edition](portfolio_report.pdf), both published in this repository.
 
 ## Abstract
 
@@ -81,4 +81,4 @@ See [METHODOLOGY.md](../METHODOLOGY.md) for original data filenames, setup, anal
 
 ---
 
-**Publication clarification:** The editable, GitHub-readable edition is published here. The full PDF and the updated Python report-generation script are available in the accompanying downloadable archive and still require a binary upload to this GitHub repository.
+**Publication clarification:** The academic PDF, illustrated portfolio report, four original research figures and updated report-generation script are all committed to this repository. The raw CausalEdu dataset must still be obtained from its original publisher.
