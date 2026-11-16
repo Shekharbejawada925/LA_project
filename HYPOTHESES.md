@@ -2,7 +2,7 @@
 
 **Study:** Naive Pre/Post Lesson Estimates Overstate Learning Gains: Evidence from the CausalEdu A/B Tests
 
-**Repository maintainer:** Bejawada Shekhar. The original academic report has three credited authors; this repository presentation does not alter that provenance.
+**Repository maintainer:** Bejawada Shekhar. This revised portfolio uses the sole-author credit confirmed by Bejawada Shekhar.
 
 ## Problem statement
 
