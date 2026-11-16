@@ -1,0 +1,10 @@
+pandas
+numpy
+scipy
+scikit-learn
+statsmodels
+networkx
+matplotlib
+reportlab
+PyMuPDF
+Pillow
