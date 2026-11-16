@@ -111,15 +111,11 @@ The analysis produces `results/` CSV/JSON outputs and `figures/` PNG visualizati
 - The experimental file does not provide learner-level treatment records for estimating individual treatment effects.
 - Year-group differences should be interpreted cautiously because lesson coverage varies between groups.
 
-## Contributors
+## Repository maintainer
 
-| Researcher | Academic ID | Contribution |
-|---|---|---|
-| Kshitij Bajpai | 24b2488 | H1 analysis and analysis code |
-| Tanushree Kashiramka | 24b2166 | Literature review, hypotheses, H3 and prior-mastery analysis |
-| **Bejawada Shekhar** | **26m1032** | Guessing correction, predictive models, grouped cross-validation (H2), limitations |
+**Bejawada Shekhar** · [@Shekharbejawada925](https://github.com/Shekharbejawada925)
 
-The three contributors jointly wrote, reviewed and revised the final report.
+This repository is maintained and presented by Bejawada Shekhar. The original academic report retains its own authorship and contribution credits.
 
 ## Data attribution
 
